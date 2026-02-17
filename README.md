@@ -1,12 +1,11 @@
 # A Note on Fermat's Last Theorem
 
+**Author:** Frank Vega  
+**Affiliation:** Information Physics Institute, 840 W 67th St, Hialeah, FL 33012, USA  
+**Email:** vega.frank@gmail.com  
+**ORCID:** 0000-0001-8210-4126  
 
-**Author:** Frank Vega
-**Affiliation:** Information Physics Institute, 840 W 67th St, Hialeah, FL 33012, USA
-**Email:** vega.frank@gmail.com
-**ORCID:** 0000-0001-8210-4126
-
----
+---  
 
 ## Abstract
 
@@ -50,7 +49,7 @@ The proof is remarkably direct: we show that the difference $\delta = a+b-c$ mus
 
 ## 2. Main Result
 
-As usual, we write $d \mid n$ to mean that the integer $d$ divides the integer $n$. We denote by $a \equiv b \pmod{n}$ the congruence of $a$ and $b$ modulo $n$ (i.e., $n \mid (a - b)$).
+As usual, we write $d \mid n$ to mean that the integer $d$ divides the integer $n$. We denote by $a \equiv b \pmod{n}$ the congruence of $a$ and $b$ modulo $n$ (i.e., $n \mid (a - b) $).
 
 This is the main theorem.
 
