@@ -49,7 +49,7 @@ We collect here all notation and auxiliary results needed for the proof.
 
 **Notation.** As usual, $d \mid n$ means that the integer $d$ divides the integer $n$, and $d \nmid n$ means that $d$ does not divide $n$. We write $\gcd(a, b)$ for the greatest common divisor of $a$ and $b$.
 
-**Definition 2.1.** Let $p$ be a prime and $n \in \mathbb{Z} \setminus \{0\}$. The $p$-adic valuation, denoted $v_p(n)$, is the highest integer $e \geq 0$ such that $p^e$ divides $n$. By convention, $v_p(0) = +\infty$.
+**Definition 2.1.** Let $p$ be a prime and $n \in \mathbb{Z} \setminus \\{0\\}$. The $p$-adic valuation, denoted $v_p(n)$, is the highest integer $e \geq 0$ such that $p^e$ divides $n$. By convention, $v_p(0) = +\infty$.
 
 **Proposition 2.2** (Lifting The Exponent Lemma for odd primes [[Manea2006]](#References)). Let $p$ be an odd prime and let $x,y$ be integers such that $p \nmid x$ and $p \nmid y$.
 
