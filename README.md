@@ -64,8 +64,8 @@ $$\nu_p(x^k + y^k) = \nu_p(x + y) + \nu_p(k).$$
 $$\nu_p \left( \binom{p^m}{k} \right) = m - \nu_p(k).$$
 
 In particular:
-- If $\nu_p(k) < m-1$ (i.e., $k \ne p^{m-1}$), then $\nu_p\!\left(\tbinom{p^m}{k}\right) \ge 2$.
-- If $\nu_p(k) = m-1$ (i.e., $k = p^{m-1}$, the unique such index), then $\nu_p\!\left(\tbinom{p^m}{p^{m-1}}\right) = 1$.
+- If $\nu_p(k) < m-1$ (i.e., $k \ne p^{m-1}$), then $\nu_p\left(\tbinom{p^m}{k}\right) \ge 2$.
+- If $\nu_p(k) = m-1$ (i.e., $k = p^{m-1}$, the unique such index), then $\nu_p\left(\tbinom{p^m}{p^{m-1}}\right) = 1$.
 
 These statements together provide the arithmetic machinery used in the proof.
 
@@ -107,7 +107,7 @@ $$\left(C^z\right)^{p^m} = p^{m \cdot p^m} \cdot Q^{p^m}, \qquad p \nmid Q,$$
 
 so
 
-$$(L) \qquad \nu_p\!\left(\left(C^z\right)^{p^m}\right) = m \cdot p^m.$$
+$$(L) \qquad \nu_p\left(\left(C^z\right)^{p^m}\right) = m \cdot p^m.$$
 
 **Step 3: Expanding the right-hand side via the binomial theorem.**
 Since $p \nmid A^x$ and $p \nmid B^y$ (as $p \nmid A$ and $p \nmid B$), the binomial expansion gives
@@ -122,12 +122,12 @@ $$k = 0\colon\quad \left(B^y\right)^{p^m}, \qquad k = p^m\colon\quad \left(A^x\r
 
 Both $p \nmid A^x$, $p \nmid B^y$ and $p \mid A^x + B^y$, so by Proposition 2.2,
 
-$$\nu_p\!\left(\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m}\right) = \nu_p\!\left(A^x +B^y\right) + \nu_p\!\left(p^m\right) = \nu_p\!\left(C^{z}\right) + m = 2m.$$
+$$\nu_p\left(\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m}\right) = \nu_p\left(A^x +B^y\right) + \nu_p\left(p^m\right) = \nu_p\left(C^{z}\right) + m = 2m.$$
 
 *Interior terms* ($1 \le k \le p^m - 1$).
 For each such $k$, since $p \nmid A^x$ and $p \nmid B^y$, the only p-power factor comes from the binomial coefficient, so
 
-$$\nu_p\!\left(\binom{p^m}{k}\left(A^x\right)^k\left(B^y\right)^{p^m-k}\right) = \nu_p\!\left(\binom{p^m}{k}\right) = m - \nu_p(k),$$
+$$\nu_p\left(\binom{p^m}{k}\left(A^x\right)^k\left(B^y\right)^{p^m-k}\right) = \nu_p\left(\binom{p^m}{k}\right) = m - \nu_p(k),$$
 
 by Proposition 2.3. Among all interior indices $k$:
 - For $\nu_p(k) \le m - 2$ (i.e., $k \ne p^{m-1}$): the valuation is $m - \nu_p(k) \ge 2$.
@@ -148,14 +148,14 @@ where $R$ collects all remaining interior terms (each of valuation $\ge 2$).
 
 The total valuation of the right-hand side of (1) is therefore
 
-$$(R) \qquad \nu_p\!\left(\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m} + T_{\mathrm{mid}} + R\right) = 1,$$
+$$(R) \qquad \nu_p\left(\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m} + T_{\mathrm{mid}} + R\right) = 1,$$
 
-because $\nu_p\!\left(T_{\mathrm{mid}}\right) = 1$ and $\nu_p\!\left(\left(A^x\right)^{p^{m-1}}\left(B^y\right)^{p^m - p^{m-1}}\right) = 0$.
+because $\nu_p\left(T_{\mathrm{mid}}\right) = 1$ and $\nu_p\left(\left(A^x\right)^{p^{m-1}}\left(B^y\right)^{p^m - p^{m-1}}\right) = 0$.
 
 **Step 5: Contradiction.**
 Comparing (L) and (R):
 
-$$\nu_p\!\left(\text{LHS}\right) = m \cdot p^m, \qquad \nu_p\!\left(\text{RHS}\right) = 1.$$
+$$\nu_p\left(\text{LHS}\right) = m \cdot p^m, \qquad \nu_p\left(\text{RHS}\right) = 1.$$
 
 Since $m \ge 3$, we have $m \cdot p^m > 1$, so the two sides of (1) have different p-adic valuations. This is a contradiction, as equal integers must have equal valuations.
 
@@ -171,11 +171,11 @@ $$\left(B^y\right)^{p^m} = \left(C^z - A^x\right)^{p^m}.$$
 
 **Left-hand side.** Exactly as in Case 1,
 
-$$\nu_p\!\left(\left(B^y\right)^{p^m}\right) = m \cdot p^m.$$
+$$\nu_p\left(\left(B^y\right)^{p^m}\right) = m \cdot p^m.$$
 
 **Right-hand side.** Since $p \nmid C^z$ and $p \nmid A^x$ (as $p \nmid C$ and $p \nmid A$), the binomial expansion of $(C^z - A^x)^{p^m}$ is identical in structure to that of $(A^x + B^y)^{p^m}$ in Case 1 (with a sign change that does not affect p-adic valuations by Proposition 2.2). The same analysis of endpoint terms, the unique middle term of valuation 1 at $k = p^{m-1}$, and the remaining terms of valuation $\ge 2$, applied with Proposition 2.3, yields
 
-$$\nu_p\!\left(\left(C^z - A^x\right)^{p^m}\right) = 1.$$
+$$\nu_p\left(\left(C^z - A^x\right)^{p^m}\right) = 1.$$
 
 This contradicts $m \cdot p^m > 1$, exactly as in Case 1.
 
