@@ -150,7 +150,14 @@ The total valuation of the right-hand side of (1) is therefore
 
 $$(R) \qquad \nu_p\left(\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m} + T_{\mathrm{mid}} + R\right) = 1,$$
 
-because $\nu_p\left(T_{\mathrm{mid}}\right) = 1$ and $\nu_p\left(\left(A^x\right)^{p^{m-1}}\left(B^y\right)^{p^m - p^{m-1}}\right) = 0$.
+because $\nu_p\left(T_{\mathrm{mid}}\right) = 1$. Certainly, we arrive at:
+
+$$ \frac{1}{p} \cdot \left(\underbrace{\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m}}_{\nu_p = 2m} + \underbrace{T_{\mathrm{mid}}}_{\nu_p = 1} + \underbrace{R}_{\nu_p \geq 2} \right) = \underbrace{\dfrac{\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m}}{p}}_{\nu_p = 2m-1} + \underbrace{\dfrac{T_{\mathrm{mid}}}{p}}_{\nu_p = 0} + \underbrace{\dfrac{R}{p}}_{\nu_p \geq 1}, $$
+
+and so, since the term $T_{\mathrm{mid}}/p$ has $\nu_p = 0$ while the remaining terms have $\nu_p \geq 1$,
+
+$$ p \nmid \left(\frac{\left(A^x\right)^{p^m} + \left(B^y\right)^{p^m}}{p} + \frac{T_{\mathrm{mid}}}{p} + \frac{R}{p}
+\right). $$
 
 **Step 5: Contradiction.**
 Comparing (L) and (R):
@@ -173,7 +180,7 @@ $$\left(B^y\right)^{p^m} = \left(C^z - A^x\right)^{p^m}.$$
 
 $$\nu_p\left(\left(B^y\right)^{p^m}\right) = m \cdot p^m.$$
 
-**Right-hand side.** Since $p \nmid C^z$ and $p \nmid A^x$ (as $p \nmid C$ and $p \nmid A$), the binomial expansion of $(C^z - A^x)^{p^m}$ is identical in structure to that of $(A^x + B^y)^{p^m}$ in Case 1 (with a sign change that does not affect p-adic valuations by Proposition 2.2). The same analysis of endpoint terms, the unique middle term of valuation 1 at $k = p^{m-1}$, and the remaining terms of valuation $\ge 2$, applied with Proposition 2.3, yields
+**Right-hand side.** Since $p \nmid C^z$ and $p \nmid A^x$ (as $p \nmid C$ and $p \nmid A$), the binomial expansion of $\left(C^z - A^x\right)^{p^m}$ is identical in structure to that of $\left(A^x + B^y\right)^{p^m}$ in Case 1. Although the binomial expansion of $\left(C^z - A^x\right)^{p^m}$ features alternating signs, no cancellation occurs among its terms: since $\gcd(A, C) = 1$, the quantities $A^x$ and $C^z$ share no common factor, so no term $\binom{p^m}{k}(C^z)^{p^m - k}(-A^x)^k$ can be absorbed into or cancelled by another. In particular, the sign change does not affect $p$-adic valuations (by Proposition 2.2). The same analysis of endpoint terms, the unique middle term of valuation $1$ at $k = p^{m-1}$, and the remaining terms of valuation $\geq 2$, applied with Proposition 2.3, yields
 
 $$\nu_p\left(\left(C^z - A^x\right)^{p^m}\right) = 1.$$
 
