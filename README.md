@@ -240,6 +240,6 @@ Several natural questions remain open. It would be interesting to explore whethe
 
 **Documentation**  
 
-Available as PDF at *[A Note on Fermat's Last Theorem](https://www.preprints.org/manuscript/202109.0480/v19)*.
+Available as PDF at *[A Note on Fermat's Last Theorem](https://www.preprints.org/manuscript/202109.0480/v20)*.
 
 ---
