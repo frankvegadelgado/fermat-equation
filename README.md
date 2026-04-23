@@ -188,7 +188,7 @@ $$m := \nu_{2}(C^{p}) = p\,\nu_{2}(C) \geq 3.$$
 
 **Step 3.2: Raising (3) to the power $2^{m}$ and splitting off the odd endpoint.** Raising both sides to the power $2^{m}$ and expanding,
 
-$$(A^{p})^{2^{m}} = (C^{p} - B^{p})^{2^{m}} = (-C^{p} + B^{p})^{2^{m}} = \sum_{k=0}^{2^{m}} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}.$$
+$$(A^{p})^{2^{m}} = (C^{p} - B^{p})^{2^{m}} = (B^{p} - C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}.$$
 
 The odd endpoint is at $k = 2^{m}$, namely $(B^{p})^{2^{m}}$ (the $2^{m}$-th power of the second odd base). Moving it to the left-hand side gives the key identity
 
