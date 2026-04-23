@@ -106,9 +106,9 @@ The *odd* endpoint of this sum is the one at $k = 2^{m}$, namely $(C^{p})^{2^{m}
 
 $$(B^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}. \qquad (1')$$
 
-We now show that the left-hand side of (1$'$) has $2$-adic valuation exactly $2m$, whereas the right-hand side has $2$-adic valuation at least $2m + 1$.
+We now show that the left-hand side of (1') has $2$-adic valuation exactly $2m$, whereas the right-hand side has $2$-adic valuation at least $2m + 1$.
 
-**Step 1.3: Valuation of the left-hand side of (1$'$).** Since $B^{p}$ and $C^{p}$ are both odd, Proposition 2.2 applies in *subtraction mode* with $x = B^{p}$, $y = C^{p}$, and even exponent $k = 2^{m}$:
+**Step 1.3: Valuation of the left-hand side of (1').** Since $B^{p}$ and $C^{p}$ are both odd, Proposition 2.2 applies in *subtraction mode* with $x = B^{p}$, $y = C^{p}$, and even exponent $k = 2^{m}$:
 
 $$\nu_{2}\!\left((B^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = \nu_{2}(B^{p} - C^{p}) + \nu_{2}(B^{p} + C^{p}) + \nu_{2}(2^{m}) - 1.$$
 
@@ -120,7 +120,7 @@ Here $\nu_{2}(2B^{p}) = 1$ (since $B$ is odd) and $\nu_{2}(A^{p}) = m \geq 3$; t
 
 $$\nu_{2}\!\left((B^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = m + 1 + m - 1 = 2m.$$
 
-**Step 1.4: Valuation of the right-hand side of (1$'$).** For each index $k$ with $0 \leq k \leq 2^{m} - 1$, the factor $(C^{p})^{k}$ is odd, so
+**Step 1.4: Valuation of the right-hand side of (1').** For each index $k$ with $0 \leq k \leq 2^{m} - 1$, the factor $(C^{p})^{k}$ is odd, so
 
 $$\nu_{2}\!\left(\binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}\right) = \nu_{2}\!\left(\binom{2^{m}}{k}\right) + (2^{m} - k)\,m,$$
 
@@ -140,7 +140,7 @@ The remaining unpaired indices are $k = 0$ and $k = 2^{m-1}$. The first contribu
 
 $$\nu_{2}\!\left(\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}\right) \geq 2m + 1.$$
 
-**Step 1.5: Contradiction.** Comparing the two sides of (1$'$),
+**Step 1.5: Contradiction.** Comparing the two sides of (1'),
 
 $$\underbrace{(B^{p})^{2^{m}} - (C^{p})^{2^{m}}}_{\nu_{2}\,=\,2m} = \underbrace{\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}}_{\nu_{2}\,\geq\,2m+1}.$$
 
@@ -168,9 +168,9 @@ $$\nu_{2}\!\left((A^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = \nu_{2}(A^{p} - C^{p
 
 From $A^{p} - C^{p} = -B^{p}$ we read off $\nu_{2}(A^{p} - C^{p}) = m$. Using the Fermat identity in the form $A^{p} + C^{p} = A^{p} + (A^{p} + B^{p}) = 2A^{p} + B^{p}$, and observing that $\nu_{2}(2A^{p}) = 1$ and $\nu_{2}(B^{p}) = m \geq 3$, the strict-inequality rule gives $\nu_{2}(A^{p} + C^{p}) = 1$. Therefore $\nu_{2}\!\left((A^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = m + 1 + m - 1 = 2m$.
 
-*Right-hand side.* The sum on the right of (2$'$) is structurally identical to the one in Case 1, with the even base $A^{p}$ replaced by $B^{p}$. Applying the pairing argument of Step 1.4 verbatim (with $A \leftrightarrow B$) yields $\nu_{2}(\cdots) \geq 2m + 1$.
+*Right-hand side.* The sum on the right of (2') is structurally identical to the one in Case 1, with the even base $A^{p}$ replaced by $B^{p}$. Applying the pairing argument of Step 1.4 verbatim (with $A \leftrightarrow B$) yields $\nu_{2}(\cdots) \geq 2m + 1$.
 
-*Contradiction.* The two sides of (2$'$) have valuations $2m$ and $\geq 2m + 1$ respectively, which is impossible. Case 2 therefore admits no solution.
+*Contradiction.* The two sides of (2') have valuations $2m$ and $\geq 2m + 1$ respectively, which is impossible. Case 2 therefore admits no solution.
 
 ---
 
@@ -194,9 +194,9 @@ The odd endpoint is at $k = 2^{m}$, namely $(B^{p})^{2^{m}}$ (the $2^{m}$-th pow
 
 $$(A^{p})^{2^{m}} - (B^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}. \qquad (3')$$
 
-This has the same structure as (1$'$) and (2$'$), with $C$ now playing the role of the even base.
+This has the same structure as (1') and (2'), with $C$ now playing the role of the even base.
 
-**Step 3.3: Valuation of the left-hand side of (3$'$).** By Proposition 2.2 applied to the odd integers $A^{p}$ and $B^{p}$ with even exponent $2^{m}$,
+**Step 3.3: Valuation of the left-hand side of (3').** By Proposition 2.2 applied to the odd integers $A^{p}$ and $B^{p}$ with even exponent $2^{m}$,
 
 $$\nu_{2}\!\left((A^{p})^{2^{m}} - (B^{p})^{2^{m}}\right) = \nu_{2}(A^{p} - B^{p}) + \nu_{2}(A^{p} + B^{p}) + \nu_{2}(2^{m}) - 1.$$
 
@@ -208,11 +208,11 @@ which rewrites the difference of two odd quantities as a difference of terms wit
 
 $$\nu_{2}\!\left((A^{p})^{2^{m}} - (B^{p})^{2^{m}}\right) = 1 + m + m - 1 = 2m.$$
 
-**Step 3.4: Valuation of the right-hand side of (3$'$).** The sum on the right of (3$'$) is structurally identical to the one in Cases 1 and 2, with the even base $C^{p}$ now appearing in the factor $(-C^{p})^{2^{m}-k}$. Applying the pairing argument of Step 1.4 verbatim (with $A \leftrightarrow C$) yields
+**Step 3.4: Valuation of the right-hand side of (3').** The sum on the right of (3') is structurally identical to the one in Cases 1 and 2, with the even base $C^{p}$ now appearing in the factor $(-C^{p})^{2^{m}-k}$. Applying the pairing argument of Step 1.4 verbatim (with $A \leftrightarrow C$) yields
 
 $$\nu_{2}\!\left(\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}\right) \geq 2m + 1.$$
 
-**Step 3.5: Contradiction.** Comparing the two sides of (3$'$),
+**Step 3.5: Contradiction.** Comparing the two sides of (3'),
 
 $$\underbrace{(A^{p})^{2^{m}} - (B^{p})^{2^{m}}}_{\nu_{2}\,=\,2m} = \underbrace{\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}}_{\nu_{2}\,\geq\,2m+1},$$
 
