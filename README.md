@@ -43,7 +43,7 @@ We collect here the notation and the auxiliary results used in the proof.
 
 **Notation.** As usual, $d \mid n$ means that the integer $d$ divides the integer $n$, and $d \nmid n$ that it does not. We write $\gcd(a,b)$ for the greatest common divisor of $a$ and $b$, and we say that $a$ and $b$ are *coprime* when $\gcd(a,b) = 1$. Three integers $A, B, C$ are called *pairwise coprime* when $\gcd(A,B) = \gcd(A,C) = \gcd(B,C) = 1$.
 
-**Definition 2.1.** Let $p$ be a prime and $n \in \mathbb{Z} \setminus \{0\}$. The *$p$-adic valuation* of $n$, denoted $\nu_{p}(n)$, is the largest integer $e \geq 0$ such that $p^{e}$ divides $n$. By convention, $\nu_{p}(0) = +\infty$. The $p$-adic valuation is completely multiplicative on $\mathbb{Z} \setminus \{0\}$; in particular, $\nu_{p}(xy) = \nu_{p}(x) + \nu_{p}(y)$ and $\nu_{p}(x^{k}) = k\,\nu_{p}(x)$ for every non-zero integer $x$ and every non-negative integer $k$. It also satisfies the *strict-inequality rule*: if $\nu_{p}(x) \neq \nu_{p}(y)$, then $\nu_{p}(x + y) = \min\{\nu_{p}(x), \nu_{p}(y)\}$.
+**Definition 2.1.** Let $p$ be a prime and $n \in \mathbb{Z} \setminus \{0\}$. The $p$-*adic valuation* of $n$, denoted $\nu_{p}(n)$, is the largest integer $e \geq 0$ such that $p^{e}$ divides $n$. By convention, $\nu_{p}(0) = +\infty$. The $p$-adic valuation is completely multiplicative on $\mathbb{Z} \setminus \{0\}$; in particular, $\nu_{p}(xy) = \nu_{p}(x) + \nu_{p}(y)$ and $\nu_{p}(x^{k}) = k\,\nu_{p}(x)$ for every non-zero integer $x$ and every non-negative integer $k$. It also satisfies the *strict-inequality rule*: if $\nu_{p}(x) \neq \nu_{p}(y)$, then $\nu_{p}(x + y) = \min\{\nu_{p}(x), \nu_{p}(y)\}$.
 
 **Proposition 2.2** (Lifting The Exponent Lemma for the prime $2$ [[Manea2006]](#references)). Let $x, y$ be integers with $2 \nmid x$ and $2 \nmid y$, and let $k$ be a positive integer. Then
 
@@ -88,7 +88,7 @@ Since $A, B, C$ are pairwise coprime, at most one of them is even. They cannot a
 
 ### Case 1: $2 \mid A$ (so $2 \nmid B$ and $2 \nmid C$)
 
-The two odd bases are now $B$ and $C$. Accordingly, we rearrange ($*$) so as to isolate one of the odd $p$-th powers on the left:
+The two odd bases are now $B$ and $C$. Accordingly, we rearrange ($\ast$) so as to isolate one of the odd $p$-th powers on the left:
 
 $$B^{p} = C^{p} - A^{p}. \qquad (1)$$
 
@@ -150,7 +150,7 @@ Equal integers must have equal $2$-adic valuations, so $2m \geq 2m + 1$, which i
 
 ### Case 2: $2 \mid B$ (so $2 \nmid A$ and $2 \nmid C$)
 
-This case is entirely symmetric to Case 1 under the interchange of $A$ and $B$---an operation that leaves ($*$) invariant. The two odd bases are now $A$ and $C$. Rearranging ($*$) to isolate an odd $p$-th power,
+This case is entirely symmetric to Case 1 under the interchange of $A$ and $B$---an operation that leaves ($\ast$) invariant. The two odd bases are now $A$ and $C$. Rearranging ($\ast$) to isolate an odd $p$-th power,
 
 $$A^{p} = C^{p} - B^{p},$$
 
@@ -176,9 +176,9 @@ From $A^{p} - C^{p} = -B^{p}$ we read off $\nu_{2}(A^{p} - C^{p}) = m$. Using th
 
 ### Case 3: $2 \mid C$ (so $2 \nmid A$ and $2 \nmid B$)
 
-In contrast to Cases 1 and 2, the even base $C$ already stands alone on the right-hand side of ($*$), so a mere sign change cannot place an odd $p$-th power in isolation; a genuine rearrangement is required, and the subtraction-mode application of the Lifting The Exponent Lemma then becomes unavoidable.
+In contrast to Cases 1 and 2, the even base $C$ already stands alone on the right-hand side of ($\ast$), so a mere sign change cannot place an odd $p$-th power in isolation; a genuine rearrangement is required, and the subtraction-mode application of the Lifting The Exponent Lemma then becomes unavoidable.
 
-The two odd bases are $A$ and $B$. Rearranging ($*$),
+The two odd bases are $A$ and $B$. Rearranging ($\ast$),
 
 $$A^{p} = C^{p} - B^{p}. \qquad (3)$$
 
