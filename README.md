@@ -78,7 +78,7 @@ We first argue that it suffices to prove the theorem for an odd prime exponent. 
 
 *Reduction to a primitive solution.* Dividing $A, B, C$ by the common factor $\gcd(A, B, C)$, we may assume $\gcd(A, B, C) = 1$. From the identity $A^{p} + B^{p} = C^{p}$, any prime dividing two of the three bases would, via the equation, divide the third as well; hence in fact $A, B, C$ are *pairwise* coprime. We are therefore reduced to the standing assumption
 
-$$\tag{$*$} A^{p} + B^{p} = C^{p}, \qquad p \text{ an odd prime}, \qquad A, B, C \in \mathbb{N} \text{ pairwise coprime}.$$
+$$A^{p} + B^{p} = C^{p}, \qquad p \text{ an odd prime}, \qquad A, B, C \in \mathbb{N} \text{ pairwise coprime}. \qquad (*)$$
 
 ### Step 2: The parity of $A$, $B$, $C$.
 
@@ -90,7 +90,7 @@ Since $A, B, C$ are pairwise coprime, at most one of them is even. They cannot a
 
 The two odd bases are now $B$ and $C$. Accordingly, we rearrange ($*$) so as to isolate one of the odd $p$-th powers on the left:
 
-$$\tag{1} B^{p} = C^{p} - A^{p}.$$
+$$B^{p} = C^{p} - A^{p}. \qquad (1)$$
 
 **Step 1.1: The valuation parameter $m$.** Because $2 \mid A$, we set
 
@@ -104,7 +104,7 @@ $$\bigl(B^{p}\bigr)^{2^{m}} = \bigl(C^{p} - A^{p}\bigr)^{2^{m}} = \sum_{k=0}^{2^
 
 The *odd* endpoint of this sum is the one at $k = 2^{m}$, namely $(C^{p})^{2^{m}}$ (the $2^{m}$-th power of the second odd base). Moving it to the left-hand side yields the key identity
 
-$$\tag{1$'$} (B^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}.$$
+$$(B^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}. \qquad (1')$$
 
 We now show that the left-hand side of (1$'$) has $2$-adic valuation exactly $2m$, whereas the right-hand side has $2$-adic valuation at least $2m + 1$.
 
@@ -160,7 +160,7 @@ $$\bigl(A^{p}\bigr)^{2^{m}} = \bigl(C^{p} - B^{p}\bigr)^{2^{m}} = \sum_{k=0}^{2^
 
 The odd endpoint is at $k = 2^{m}$, yielding $(C^{p})^{2^{m}}$. Moving it to the left-hand side gives
 
-$$\tag{2$'$} (A^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-B^{p})^{2^{m}-k}.$$
+$$(A^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-B^{p})^{2^{m}-k}. \qquad (2')$$
 
 *Left-hand side.* Since $A^{p}$ and $C^{p}$ are both odd, Proposition 2.2 gives
 
@@ -180,7 +180,7 @@ In contrast to Cases 1 and 2, the even base $C$ already stands alone on the righ
 
 The two odd bases are $A$ and $B$. Rearranging ($*$),
 
-$$\tag{3} A^{p} = C^{p} - B^{p}.$$
+$$A^{p} = C^{p} - B^{p}. \qquad (3)$$
 
 **Step 3.1: The valuation parameter $m$.** Since $2 \mid C$,
 
@@ -192,7 +192,7 @@ $$(A^{p})^{2^{m}} = (C^{p} - B^{p})^{2^{m}} = (-C^{p} + B^{p})^{2^{m}} = \sum_{k
 
 The odd endpoint is at $k = 2^{m}$, namely $(B^{p})^{2^{m}}$ (the $2^{m}$-th power of the second odd base). Moving it to the left-hand side gives the key identity
 
-$$\tag{3$'$} (A^{p})^{2^{m}} - (B^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}.$$
+$$(A^{p})^{2^{m}} - (B^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}. \qquad (3')$$
 
 This has the same structure as (1$'$) and (2$'$), with $C$ now playing the role of the even base.
 
