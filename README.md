@@ -224,30 +224,6 @@ yielding $2m \geq 2m + 1$, a contradiction.
 
 ---
 
-## 4. Conclusions
-
-We have presented a proof of Fermat's Last Theorem relying solely on classical and elementary tools: the Lifting The Exponent Lemma and the exact formula for the $2$-adic valuation of the binomial coefficients $\binom{2^{m}}{k}$. The argument is self-contained, short, and entirely free of elliptic curves, modular forms, or any twentieth-century machinery.
-
-The proof proceeds by reducing the problem to a primitive solution $A^{p} + B^{p} = C^{p}$ with $p$ an odd prime and $A, B, C$ pairwise coprime, then distinguishing three symmetric cases according to which of $A$, $B$, $C$ is the unique even base. Central to the proof is the observation that, in every case, one can rearrange the Fermat equation so as to isolate one of the two *odd* $p$-th powers on one side and raise the resulting identity to the power $2^{m}$, where $m$ is the $2$-adic valuation of the even $p$-th power. Among the $2^{m} + 1$ terms of the ensuing binomial expansion, exactly one endpoint is again the $2^{m}$-th power of an odd base---namely, of the second odd base among $A, B, C$. Splitting off that endpoint and moving it to the left-hand side produces an identity whose left-hand side has the shape $(X^{p})^{2^{m}} - (Y^{p})^{2^{m}}$, with $X, Y$ the two odd bases, while the right-hand side consists of binomial terms each containing at least one positive power of the even $p$-th power.
-
-Under this uniform setup, the Lifting The Exponent Lemma is applied in *subtraction mode* to the two odd integers $X^{p}$ and $Y^{p}$ raised to the even power $2^{m}$, and delivers the *exact* valuation
-
-$$\nu_{2}\!\left((X^{p})^{2^{m}} - (Y^{p})^{2^{m}}\right) = 2m$$
-
-in each of the three cases. The computation of the two auxiliary valuations $\nu_{2}(X^{p} - Y^{p})$ and $\nu_{2}(X^{p} + Y^{p})$ is carried out by simple algebraic identities that re-use the original Fermat equation. On the right-hand side, each individual summand has valuation at least $2m$, and the symmetry $\binom{2^{m}}{k} = \binom{2^{m}}{2^{m} - k}$ allows us to pair each index $k$ with its complement $2^{m} - k$, producing an additional factor of $2$ in each paired sum and pushing the total valuation of the right-hand side to at least $2m + 1$. The strict inequality $2m < 2m + 1$ is then the contradiction that closes every case.
-
-What makes the case $2 \mid C$ especially illuminating is that it is the case in which the subtraction-mode application of the Lifting The Exponent Lemma is *forced* upon us, and for that reason it is the case that first reveals the unified template. Because the even base $C$ already appears alone on the right-hand side of the Fermat equation, no sign flip suffices to isolate an odd $p$-th power; we must rearrange to $A^{p} = C^{p} - B^{p}$ and, after raising to $2^{m}$, rewrite as $(-C^{p} + B^{p})^{2^{m}}$ so that the odd endpoint falls at $k = 2^{m}$---exactly as in Cases 1 and 2. The exact valuation of the left-hand side is then computed via the critical identity
-
-$$A^{p} - B^{p} = C^{p} - 2\,B^{p},$$
-
-which converts the difference of two odd integers into a difference of terms whose $2$-adic valuations ($m$ and $1$) are manifestly unequal, so that the strict-inequality rule yields $\nu_{2}(A^{p} - B^{p}) = 1$; combined with $\nu_{2}(A^{p} + B^{p}) = m$, the Lifting The Exponent Lemma produces the sought-after exact valuation $2m$.
-
-This same manoeuvre turns out to be exactly the right tool in Cases 1 and 2 as well. In those two cases the corresponding endpoint to be moved is $(C^{p})^{2^{m}}$ (now odd, since $C$ is odd whenever $2 \mid A$ or $2 \mid B$); the roles of the bases in the pairing argument simply swap, and the analogous algebraic identities $B^{p} + C^{p} = 2\,B^{p} + A^{p}$ (for Case 1) and $A^{p} + C^{p} = 2\,A^{p} + B^{p}$ (for Case 2) produce $\nu_{2}(B^{p} + C^{p}) = 1$ and $\nu_{2}(A^{p} + C^{p}) = 1$ respectively, again via the strict-inequality rule. The three cases thus constitute a single unified argument with three almost identical instantiations, all driven by the same $2$-adic mechanism first revealed by the case $2 \mid C$.
-
-Several natural questions remain open. It would be of interest to investigate whether analogous $2$-adic valuation arguments extend to more general exponential Diophantine equations, and whether the present approach can be adapted to yield new results on the $abc$-conjecture or the Beal conjecture [[beal1997generalization, stewart1986oesterle]](#references). We hope that the elementary character of the present proof will make these problems more accessible and stimulate further research.
-
----
-
 ## Acknowledgements
 
 The author would like to thank Iris, Marilin, Sonia, Yoselin, and Arelis for their support.
