@@ -159,15 +159,15 @@ Two main results have been established. For the Beal conjecture $A^{x}+B^{y}=C^{
 
 **[Fer91]** Fermat, Pierre de (1891). *Oeuvres de Pierre de Fermat*, Volume 1. Edited by Paul Tannery and Jules Tannery. Gauthier-Villars, Paris, France.
 
-**[Wil95]** Wiles, Andrew (1995). "Modular elliptic curves and Fermat's Last Theorem," *Annals of Mathematics*, 141(3), 443--551. JSTOR. DOI: [10.2307/2118559](https://doi.org/10.2307/2118559).
+**[Wil95]** Wiles, Andrew (1995). "Modular elliptic curves and Fermat's Last Theorem," *Annals of Mathematics*, 141(3), 443—551. JSTOR. DOI: [10.2307/2118559](https://doi.org/10.2307/2118559).
 
-**[Rib95]** Ribet, Kenneth A. (1995). "Galois representations and modular forms," *Bulletin of the American Mathematical Society*, 32(4), 375--402. DOI: [10.1090/S0273-0979-1995-00616-6](https://doi.org/10.1090/S0273-0979-1995-00616-6).
+**[Rib95]** Ribet, Kenneth A. (1995). "Galois representations and modular forms," *Bulletin of the American Mathematical Society*, 32(4), 375—402. DOI: [10.1090/S0273-0979-1995-00616-6](https://doi.org/10.1090/S0273-0979-1995-00616-6).
 
 **[BE97]** Beal, Andrew (1997). "A Generalization of Fermat's Last Theorem: The Beal Conjecture and Prize Problem," *Notices of the AMS*, 44(11).
 
 **[PN17]** Norvig, Peter (2017). "Beal's Conjecture: A Search for Counterexamples," *Norvig.com*, July 2017. URL: [http://norvig.com/beal.html](http://norvig.com/beal.html). Accessed February 19, 2026.
 
-**[Manea2006]** Manea, M. (2006). "Some $a^n \pm b^n$ Problems in Number Theory," *Mathematics Magazine*, 79(2), 140--145. Mathematical Association of America, April 2006. DOI: [10.2307/27642922](https://doi.org/10.2307/27642922).
+**[Manea2006]** Manea, M. (2006). "Some $a^n \pm b^n$ Problems in Number Theory," *Mathematics Magazine*, 79(2), 140—145. Mathematical Association of America, April 2006. DOI: [10.2307/27642922](https://doi.org/10.2307/27642922).
 
 **[Gra94]** Graham, Ronald L., Knuth, Donald E., and Patashnik, Oren (1994). *Concrete Mathematics: A Foundation for Computer Science*, 2nd ed. Addison-Wesley, Reading, MA.
 
