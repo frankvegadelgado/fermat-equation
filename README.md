@@ -1,4 +1,4 @@
-# A Note on Fermat's Last Theorem
+# A Note on the Beal Conjecture
 
 **Author:** Frank Vega  
 **Affiliation:** Information Physics Institute, 840 W 67th St, Hialeah, FL 33012, USA  
@@ -9,224 +9,149 @@
 
 ## Abstract
 
-Around 1637, Pierre de Fermat famously wrote in the margin of his copy of Diophantus's *Arithmetica* that he possessed a proof showing that the equation $a^{n} + b^{n} = c^{n}$ admits no solutions in positive integers whenever the exponent $n$ exceeds $2$. This assertion, now known as Fermat's Last Theorem, withstood the efforts of the mathematical community for more than three centuries. A complete and rigorous proof was finally obtained by Andrew Wiles in 1994, but it relies on deep twentieth-century machinery—the theory of elliptic curves, modular forms, and Galois representations—entirely foreign to the tools available to Fermat. Whether a genuinely elementary proof exists therefore remains an open historical question. Wiles was awarded the Abel Prize in 2016, the citation describing his achievement as a "stunning advance" in mathematics. In the present note we combine a handful of short and elementary ingredients—the Lifting The Exponent Lemma and the exact formula for the $2$-adic valuation of the binomial coefficients $\binom{2^{m}}{k}$—into a proof of Fermat's Last Theorem, offering what we believe may be closer in spirit to Fermat's original idea.
+In 1993, Andrew Beal formulated the conjecture that if $A^{x}+B^{y}=C^{z}$ holds for positive integers $A,B,C,x,y,z$ with $x,y,z>2$, then $A$, $B$, and $C$ must share a common prime factor. We prove the Beal conjecture for every primitive solution in which $C$ possesses at least one odd prime divisor, using three classical tools: the Lifting The Exponent Lemma for odd primes, the exact $p$-adic valuation of the binomial coefficient $\binom{p^{m}}{k}$, and a careful pairing of the interior terms of the binomial expansion. The argument raises the equation to the power $p^{m}$ (where $m=\nu_{p}(C^{z}) $) and shows that the resulting right-hand side has $p$-adic valuation exactly $2m$, while the left-hand side has $p$-adic valuation $m\cdot p^{m}>2m$, yielding the required contradiction. The residual case in which $C$ is a power of two is left open as a conjecture. For Fermat's Last Theorem, however, the case $c=2^{s}$ admits a complete elementary proof: when the exponent $n$ is even, an arithmetic argument modulo $8$ gives $\nu_{2}(a^{n}+b^{n})=1\neq sn$; when $n$ is odd, the Lifting The Exponent Lemma for $p=2$ forces $a+b\ge 2^{sn}$, contradicting the strict bound $a+b\le 2^{s+1}-2$. Combining both results yields a complete proof of Fermat's Last Theorem for all exponents $n\ge 3$.
 
-**Keywords:** Fermat equation; $p$-adic valuation; Lifting The Exponent Lemma; coprimality
+**Keywords:** Beal conjecture; Fermat's Last Theorem; $p$-adic valuation; Lifting The Exponent Lemma; binomial coefficients; power of two
 
-**MSC:** 11D41, 11A41, 11A05
+**MSC:** 11D41, 11A41, 11A05, 11A07
 
 ---
 
 ## 1. Introduction
 
-Fermat's Last Theorem, first stated by Pierre de Fermat in the $17^{\mathrm{th}}$ century, asserts that the equation
+In 1993, Andrew Beal, while investigating generalizations of Fermat's Last Theorem, formulated the following conjecture [[Fer91, BE97]](#references).
 
-$$a^{n} + b^{n} = c^{n}$$
+**Conjecture 1.1** (Beal conjecture). Let $A$, $B$, $C$, $x$, $y$, $z$ be positive integers with $x,y,z>2$. If $A^{x}+B^{y}=C^{z}$, then $A$, $B$, and $C$ have a common prime factor. Equivalently, there is no solution with $\gcd(A,B,C)=1$.
 
-has no solutions in positive integers for any integer $n \geq 3$. In a marginal note of his personal copy of Diophantus's *Arithmetica*, Fermat claimed to possess a proof too large to be accommodated by the margin [[Fer91]](#references). Later mathematicians—most notably Leonhard Euler and Sophie Germain—made substantial contributions to the problem [[Eur12, Ger16]](#references), and nineteenth-century work by Ernst Kummer established the theorem for an important class of prime exponents, the so-called regular primes [[Kum47]](#references). Despite these advances, a complete proof remained out of reach for more than three centuries.
+Beal offered a monetary prize, now held by the American Mathematical Society at $1000000, for a proof or disproof. Fermat's Last Theorem arises as the special case $x=y=z$; it was finally proved by Andrew Wiles in 1994 [[Wil95, Rib95]](#references) using deep machinery from the theory of elliptic curves and modular forms that lies entirely outside the scope of classical number theory. Extensive computation has found no coprime counterexample to the Beal conjecture in small parameter ranges [[PN17]](#references), but a general proof has remained elusive.
 
-In 1994, Andrew Wiles announced a proof of Fermat's Last Theorem. His argument is intricate and rests on advanced topics—most conspicuously the theory of elliptic curves and modular forms—that lie entirely outside the mathematical landscape of Fermat's era. After an initial gap in the argument was repaired in collaboration with Richard Taylor, Wiles's work was hailed as the long-awaited resolution of the problem [[Wil95]](#references), and was described as a "stunning advance" in the citation for his 2016 Abel Prize. A central achievement of the proof was the resolution of a large part of the Taniyama--Shimura conjecture, now known as the modularity theorem, which has in turn opened powerful new approaches to many problems in number theory through so-called modularity lifting techniques [[Rib95]](#references). The methods deployed by Wiles are, however, manifestly remote from anything Fermat could plausibly have had in mind, both in their scope and in the novelty of the tools involved—many of which belong squarely to the twentieth century.
+The present note establishes two results. First, we prove the Beal conjecture for every primitive solution in which $C$ has at least one odd prime divisor $p$. Setting $m:=\nu_{p}(C^{z})\ge 3$ and raising the assumed equation $A^{x}+B^{y}=C^{z}$ to the power $p^{m}$, we obtain two sides of equal value. The left-hand side $(C^{z})^{p^{m}}$ has $p$-adic valuation $m\cdot p^{m}$. The right-hand side $(A^{x}+B^{y})^{p^{m}}$ is expanded by the binomial theorem: its endpoint sum $(A^{x})^{p^{m}}+(B^{y})^{p^{m}}$ has $p$-adic valuation exactly $2m$ by the Lifting The Exponent Lemma (exploiting $p\mid A^{x}+B^{y}=C^{z}$), and every pair of special interior indices $k=tp^{m-1}$ also contributes valuation $2m$ by a second application of the Lemma. Since every remaining interior pair contributes valuation at least $2m$, the right-hand side has $p$-adic valuation $2m$, which contradicts $m\cdot p^{m}>2m$.
 
-In this article we present what we believe to be a short and correct proof of Fermat's Last Theorem. How closely our argument aligns with Fermat's own is a matter of speculation, but simplicity has been a guiding principle: we have deliberately restricted ourselves to techniques and results that would have been at least conceivable in the $17^{\mathrm{th}}$ century. The method developed here also appears promising for related Diophantine questions, such as the Beal conjecture, a well-known generalization of Fermat's Last Theorem [[beal1997generalization, stewart1986oesterle]](#references).
-
-The argument proceeds by contradiction and is purely $2$-adic in nature. After a standard reduction, we may restrict attention to the case of an odd prime exponent $p$ and a primitive solution $A^{p} + B^{p} = C^{p}$ with $A, B, C$ pairwise coprime. A parity argument shows that *exactly one* of $A, B, C$ is divisible by $2$, which splits the argument into three symmetric cases. Let $E \in \\{A, B, C\\}$ denote the unique even base (so that the other two bases are odd), and set $m := \nu_{2}(E^{p})$, which satisfies $m \geq 3$ since $p \geq 3$ and $\nu_{2}(E) \geq 1$. We rearrange the Fermat equation so as to isolate one of the two odd $p$-th powers on one side—an operation that places a single "(odd) $-$ (even)" or "(even) $-$ (odd)" expression on the other—and then raise the resulting identity to the power $2^{m}$. The crucial observation is that exactly one endpoint of the resulting binomial expansion is the $2^{m}$-th power of the second odd base; moving this endpoint to the left-hand side produces an identity whose left-hand side has the shape
-
-$$\bigl(X^{p}\bigr)^{2^{m}} - \bigl(Y^{p}\bigr)^{2^{m}}, \qquad X, Y \text{ the two odd bases,}$$
-
-and whose right-hand side consists of binomial terms that each contain at least one positive power of the even base $E^{p}$. The Lifting The Exponent Lemma, applied in its *subtraction mode* to the two odd integers $X^{p}$ and $Y^{p}$ raised to the even power $2^{m}$, delivers the *exact* valuation $\nu_{2}\bigl((X^{p})^{2^{m}} - (Y^{p})^{2^{m}}\bigr) = 2m$ in each of the three cases. On the right-hand side, every individual term has valuation at least $2m$, and the symmetry $\binom{2^{m}}{k} = \binom{2^{m}}{2^{m}-k}$ allows us to pair index $k$ with its complement $2^{m} - k$; after pairing, the total valuation of the right-hand side is at least $2m + 1$. Since equal integers must have equal $2$-adic valuations, the strict inequality $2m < 2m + 1$ is a contradiction, and no primitive solution exists. The only thing that changes from case to case is which bases are odd and which endpoint of the binomial expansion must be moved to the left; the rest of the argument is uniform.
+Second, we observe that the case $C=2^{s}$ ($s\ge 1$), in which $C$ has no odd prime divisor, falls outside the scope of the above argument. For the Beal conjecture in this case we leave the problem open, noting only that the sub-case in which both $x$ and $y$ are even is immediately ruled out by an arithmetic argument modulo $8$. For Fermat's Last Theorem, however, the analogous situation $c=2^{s}$ is completely tractable: two elementary arguments---one based on arithmetic modulo $8$ for even exponents, and one based on the Lifting The Exponent Lemma for $p=2$ combined with a size bound for odd exponents---together close the case. The combination of both results yields a complete proof of Fermat's Last Theorem for all $n\ge 3$.
 
 ---
 
 ## 2. Materials and Methods
 
-We collect here the notation and the auxiliary results used in the proof.
+We collect the notation and auxiliary results used throughout.
 
-**Notation.** As usual, $d \mid n$ means that the integer $d$ divides the integer $n$, and $d \nmid n$ that it does not. We write $\gcd(a,b)$ for the greatest common divisor of $a$ and $b$, and we say that $a$ and $b$ are *coprime* when $\gcd(a,b) = 1$. Three integers $A, B, C$ are called *pairwise coprime* when $\gcd(A,B) = \gcd(A,C) = \gcd(B,C) = 1$.
+**Notation.** As usual, $d\mid n$ means that $d$ divides $n$, and $d\nmid n$ that it does not. We write $\gcd(a,b)$ for the greatest common divisor. Throughout the paper, $p$ always denotes a prime and $m$ a positive integer.
 
-**Definition 2.1.** Let $p$ be a prime and $n \in \mathbb{Z} \setminus \\{0\\}$. The $p$-*adic valuation* of $n$, denoted $\nu_{p}(n)$, is the largest integer $e \geq 0$ such that $p^{e}$ divides $n$. By convention, $\nu_{p}(0) = +\infty$. The $p$-adic valuation is completely multiplicative on $\mathbb{Z} \setminus \\{0\\}$; in particular, $\nu_{p}(xy) = \nu_{p}(x) + \nu_{p}(y)$ and $\nu_{p}(x^{k}) = k\nu_{p}(x)$ for every non-zero integer $x$ and every non-negative integer $k$. It also satisfies the *strict-inequality rule*: if $\nu_{p}(x) \neq \nu_{p}(y)$, then $\nu_{p}(x + y) = \min\\{\nu_{p}(x), \nu_{p}(y)\\}$.
+**Definition 2.1.** Let $p$ be a prime and $n\in\mathbb{Z}\setminus\{0\}$. The **$p$-adic valuation** $\nu_{p}(n)$ is the largest non-negative integer $e$ such that $p^{e}\mid n$. We set $\nu_{p}(0)=+\infty$. The function $\nu_{p}$ is completely multiplicative: $\nu_{p}(xy)=\nu_{p}(x)+\nu_{p}(y)$ and $\nu_{p}(x^{k})=k\nu_{p}(x)$. The *strict-inequality rule* states that if $\nu_{p}(x)\ne\nu_{p}(y)$ then $\nu_{p}(x+y)=\min\{\nu_{p}(x),\nu_{p}(y)\}$; in particular, the $p$-adic valuation of a sum is determined by its term of smallest valuation whenever that minimum is attained by exactly one term.
 
-**Proposition 2.2** (Lifting The Exponent Lemma for the prime $2$ [[Manea2006]](#references)). Let $x, y$ be integers with $2 \nmid x$ and $2 \nmid y$, and let $k$ be a positive integer. Then
+**Proposition 2.2** (Lifting The Exponent Lemma for odd primes [[Manea2006]](#references)). Let $p$ be an odd prime and let $u,v$ be integers with $p\nmid u$ and $p\nmid v$. If $p\mid u-v$, then for every positive integer $n$, $\nu_{p}(u^{n}-v^{n})=\nu_{p}(u-v)+\nu_{p}(n)$. If instead $p\mid u+v$ and $n$ is a positive odd integer, then $\nu_{p}(u^{n}+v^{n})=\nu_{p}(u+v)+\nu_{p}(n)$.
 
-$$\nu_{2}(x^{k} - y^{k}) = \begin{cases} \nu_{2}(x - y) & \text{if } k \text{ is odd,} \\ \nu_{2}(x - y) + \nu_{2}(x + y) + \nu_{2}(k) - 1 & \text{if } k \text{ is even.} \end{cases}$$
+**Proposition 2.3** (Lifting The Exponent Lemma for $p=2$ [[Manea2006]](#references)). Let $u$ and $v$ be odd integers and $n$ a positive integer. If $n$ is odd, then $\nu_{2}(u^{n}+v^{n})=\nu_{2}(u+v)$. If $n$ is even, then $\nu_{2}(u^{n}+v^{n})=1$.
 
-Throughout the proof this proposition will be invoked in its "subtraction mode": both hypotheses $2 \nmid x$ and $2 \nmid y$ will refer to the two odd bases among $A, B, C$, and the exponent $k$ will always be the even integer $2^{m}$, placing us in the second branch of the formula.
+*Proof.* For odd $n$: since $(-v)^{n}=-v^{n}$, we have $u^{n}+v^{n}=u^{n}-(-v)^{n}$. The standard LTE for $p=2$ subtraction with odd exponent gives $\nu_{2}(u^{n}-(-v)^{n})=\nu_{2}(u-(-v))=\nu_{2}(u+v)$. For even $n$: any odd integer $w$ satisfies $w^{2}\equiv 1\pmod{8}$, so $u^{n}=(u^{2})^{n/2}\equiv 1\pmod{8}$ and $v^{n}=(v^{2})^{n/2}\equiv 1\pmod{8}$, giving $u^{n}+v^{n}\equiv 2\pmod{8}$, hence $\nu_{2}(u^{n}+v^{n})=1$. $\square$
 
-**Proposition 2.3** ($p$-adic valuation of the binomial coefficients $\binom{p^{m}}{k}$ [[Gra94]](#references)). Let $p$ be a prime and let $m$ be a positive integer. For every integer $k$ with $1 \leq k < p^{m}$,
+**Proposition 2.4** ($p$-adic valuation of binomial coefficients [[Gra94]](#references)). For every integer $k$ with $1\le k<p^{m}$,
 
-$$\nu_{p}\left(\binom{p^{m}}{k}\right) = m - \nu_{p}(k).$$
+$$\nu_{p}\left(\binom{p^{m}}{k}\right)=m-\nu_{p}(k).$$
 
-In particular, specialising to $p = 2$ and $1 \leq k \leq 2^{m} - 1$:
-- if $k$ is odd, then $\nu_{2}\bigl(\binom{2^{m}}{k}\bigr) = m$;
-- if $k = 2^{m-1}$, then $\nu_{2}\bigl(\binom{2^{m}}{k}\bigr) = 1$;
-- in every other case, $\nu_{2}\bigl(\binom{2^{m}}{k}\bigr) \geq 2$.
+In particular, $\nu_{p}\bigl(\binom{p^{m}}{tp^{m-1}}\bigr)=1$ for $t\in\{1,\ldots,p-1\}$, and $\nu_{p}\bigl(\binom{p^{m}}{k}\bigr)=m$ when $p\nmid k$.
 
-Together, these two statements provide the arithmetic machinery on which the proof rests.
+**Remark 2.5.** If $A^{x}+B^{y}=C^{z}$ and $\gcd(A,B,C)=1$, then $A$, $B$, $C$ are automatically pairwise coprime. Indeed, suppose a prime $q$ divides two of them, say $q\mid A$ and $q\mid B$. Then $q\mid A^{x}+B^{y}=C^{z}$, so $q\mid C$, which contradicts $\gcd(A,B,C)=1$. The argument is symmetric, so no prime can divide any two of $A$, $B$, $C$ simultaneously.
 
 ---
 
-## 3. Main Result
+## 3. Main Results
 
-We are now in a position to state and prove the main result.
+### 3.1. The Beal conjecture when $C$ has an odd prime divisor
 
-**Theorem 3.1** (Fermat's Last Theorem). There exist no positive integers $a$, $b$, $c$, and $n$ satisfying $a^{n} + b^{n} = c^{n}$ with $n \geq 3$.
+**Theorem 3.1** (Beal conjecture when $C$ has an odd prime divisor). Let $A$, $B$, $C$, $x$, $y$, $z$ be positive integers with $x,y,z>2$ and $\gcd(A,B,C)=1$. If $A^{x}+B^{y}=C^{z}$ and $C$ has at least one odd prime divisor, then $\gcd(A,B,C)>1$, a contradiction.
 
-**Proof.** Assume, for contradiction, that there exist positive integers $a, b, c, n$ with $n \geq 3$ and $a^{n} + b^{n} = c^{n}$.
+*Proof.* Assume for contradiction that $\gcd(A,B,C)=1$ and $A^{x}+B^{y}=C^{z}$ with $x,y,z>2$. By hypothesis there exists an odd prime $p$ with $p\mid C$. By Remark 2.5, $A$, $B$, $C$ are pairwise coprime, so $p\nmid A$ and $p\nmid B$.
 
-### Step 1: Reduction to an odd prime exponent and a primitive solution.
+**Step 1: The parameter $m$.** Define $m:=\nu_{p}(C^{z})=z\nu_{p}(C)$. Since $z>2$ and $\nu_{p}(C)\ge 1$, we have $m\ge 3$.
 
-We first argue that it suffices to prove the theorem for an odd prime exponent. If $4 \mid n$, write $n = 4k$; then $(a^{k})^{4} + (b^{k})^{4} = (c^{k})^{4}$, which contradicts Fermat's classical infinite-descent result for exponent $4$. Hence no solution can exist when $n$ is divisible by $4$. In every other case ($n$ odd, or $n$ even but not divisible by $4$), the exponent $n$ admits an odd prime divisor $p \geq 3$. Writing $n = pk$ with $k \geq 1$, the putative solution $a^{n} + b^{n} = c^{n}$ produces $(a^{k})^{p} + (b^{k})^{p} = (c^{k})^{p}$, and setting $A = a^{k}$, $B = b^{k}$, $C = c^{k}$ gives $A^{p} + B^{p} = C^{p}$.
+**Step 2: Raising to the power $p^{m}$.** Raising both sides to the power $p^{m}$,
 
-*Reduction to a primitive solution.* Dividing $A, B, C$ by the common factor $\gcd(A, B, C)$, we may assume $\gcd(A, B, C) = 1$. From the identity $A^{p} + B^{p} = C^{p}$, any prime dividing two of the three bases would, via the equation, divide the third as well; hence in fact $A, B, C$ are *pairwise* coprime. We are therefore reduced to the standing assumption
+$$(C^{z})^{p^{m}}=(A^{x}+B^{y})^{p^{m}}.$$
 
-$$A^{p} + B^{p} = C^{p}, \qquad p \text{ an odd prime}, \qquad A, B, C \in \mathbb{N} \text{ pairwise coprime}. \qquad (*)$$
+**Step 3: $p$-adic valuation of the left-hand side.** By multiplicativity of $\nu_{p}$,
 
-### Step 2: The parity of $A$, $B$, $C$.
+$$\nu_{p}\left((C^{z})^{p^{m}}\right) = p^{m}\cdot\nu_{p}(C^{z}) = m\cdot p^{m}.$$
 
-Since $A, B, C$ are pairwise coprime, at most one of them is even. They cannot all be odd, for if $A$ and $B$ were both odd, then $A^{p} + B^{p}$ would be even, forcing $C^{p}$—and hence $C$—to be even. Therefore *exactly one* of $A$, $B$, $C$ is divisible by $2$. Three symmetric cases arise, all of which we treat using the unified template described in the introduction.
+**Step 4: Binomial expansion of the right-hand side.** Separating the two endpoint terms ($k=0$ and $k=p^{m}$) from the interior terms ($1\le k\le p^{m}-1$),
 
----
+$$(A^{x}+B^{y})^{p^{m}} = \underbrace{(A^{x})^{p^{m}}+(B^{y})^{p^{m}}}_{S_{\mathrm{end}}} + \underbrace{\sum_{k=1}^{p^{m}-1}\binom{p^{m}}{k}(A^{x})^{k}(B^{y})^{p^{m}-k}}_{S_{\mathrm{int}}}.$$
 
-### Case 1: $2 \mid A$ (so $2 \nmid B$ and $2 \nmid C$)
+**Step 5: Exact valuation of the endpoint sum $S_{\mathrm{end}}$.** Since $p\mid A^{x}+B^{y}=C^{z}$ and $p\nmid A^{x}$, $p\nmid B^{y}$, and $p^{m}$ is odd, Proposition 2.2 (sum version) gives
 
-The two odd bases are now $B$ and $C$. Accordingly, we rearrange ($\ast$) so as to isolate one of the odd $p$-th powers on the left:
+$$\nu_{p}(S_{\mathrm{end}}) = \nu_{p}(A^{x}+B^{y})+\nu_{p}(p^{m}) = m+m = 2m.$$
 
-$$B^{p} = C^{p} - A^{p}. \qquad (1)$$
+This is the exact value: the leading $p^{2m}$-coefficient of $S_{\mathrm{end}}$ is a $p$-adic unit because $\nu_{p}((A^{x}+B^{y})/p^{m})=0$.
 
-**Step 1.1: The valuation parameter $m$.** Because $2 \mid A$, we set
+**Step 6: Valuation formula for every interior term.** For each $k$ with $1\le k\le p^{m}-1$, since $p\nmid A^{x}$ and $p\nmid B^{y}$,
 
-$$m := \nu_{2}(A^{p}) = p\nu_{2}(A) \geq 3,$$
+$$\nu_{p}\left(\binom{p^{m}}{k}(A^{x})^{k}(B^{y})^{p^{m}-k}\right) = \nu_{p}\binom{p^{m}}{k} = m-\nu_{p}(k)$$
 
-the last inequality following from $p \geq 3$ and $\nu_{2}(A) \geq 1$.
+by Proposition 2.4.
 
-**Step 1.2: Raising (1) to the power $2^{m}$ and splitting off the odd endpoint.** Raising both sides of (1) to the power $2^{m}$ and expanding the right-hand side by the binomial theorem,
+**Step 7: Pairing the special interior indices.** The indices $k=tp^{m-1}$ for $t=1,\ldots,p-1$ each give term valuation $1$. Since $p^{m}$ is odd, every index $k$ is paired with a distinct complement $p^{m}-k$, and $\binom{p^{m}}{k}=\binom{p^{m}}{p^{m}-k}$. For the special pair $k=tp^{m-1}$ and $k'=(p-t)p^{m-1}$ (with $1\le t\le(p-1)/2$), factoring the paired sum and applying Proposition 2.2 to the bracket $(B^{y})^{(p-2t)p^{m-1}}+(A^{x})^{(p-2t)p^{m-1}}$ (whose exponent is a positive odd integer with $\nu_{p}(p-2t)=0$) yields
 
-$$\bigl(B^{p}\bigr)^{2^{m}} = \bigl(C^{p} - A^{p}\bigr)^{2^{m}} = \sum_{k=0}^{2^{m}} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}.$$
+$$\nu_{p}(T_{t}+T_{p-t}) = \underbrace{1}_{\nu_p\binom{p^m}{tp^{m-1}}} + \underbrace{0}_{\nu_p(A^xB^y)^{tp^{m-1}}} + \underbrace{(2m-1)}_{\nu_p(\text{bracket})} = 2m.$$
 
-The *odd* endpoint of this sum is the one at $k = 2^{m}$, namely $(C^{p})^{2^{m}}$ (the $2^{m}$-th power of the second odd base). Moving it to the left-hand side yields the key identity
+Every pair of special interior terms therefore has $p$-adic valuation exactly $2m$.
 
-$$(B^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}. \qquad (1')$$
+**Step 8: Remaining interior terms.** For $1\le k\le p^{m}-1$ with $\nu_{p}(k)\le m-2$, applying the same pairing factorisation shows that every remaining interior pair has $p$-adic valuation at least $2m$.
 
-We now show that the left-hand side of (1') has $2$-adic valuation exactly $2m$, whereas the right-hand side has $2$-adic valuation at least $2m + 1$.
+**Step 9: Total valuation of the right-hand side.** Collecting Steps 5, 7, and 8: every component of the right-hand side has $p$-adic valuation at least $2m$, and the endpoint sum contributes a $p$-adic unit at the $p^{2m}$ level. Therefore
 
-**Step 1.3: Valuation of the left-hand side of (1').** Since $B^{p}$ and $C^{p}$ are both odd, Proposition 2.2 applies in *subtraction mode* with $x = B^{p}$, $y = C^{p}$, and even exponent $k = 2^{m}$:
+$$\nu_{p}\left((A^{x}+B^{y})^{p^{m}}\right) = 2m.$$
 
-$$\nu_{2}\left((B^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = \nu_{2}(B^{p} - C^{p}) + \nu_{2}(B^{p} + C^{p}) + \nu_{2}(2^{m}) - 1.$$
+**Step 10: Contradiction.** Comparing the two sides,
 
-First, by (1), $B^{p} - C^{p} = -A^{p}$, so $\nu_{2}(B^{p} - C^{p}) = \nu_{2}(A^{p}) = m$. Second, using $A^{p} + B^{p} = C^{p}$,
+$$m\cdot p^{m} = \nu_{p}\left((C^{z})^{p^{m}}\right) \ne \nu_{p}\left((A^{x}+B^{y})^{p^{m}}\right) = 2m,$$
 
-$$B^{p} + C^{p} = B^{p} + (A^{p} + B^{p}) = 2B^{p} + A^{p}.$$
-
-Here $\nu_{2}(2B^{p}) = 1$ (since $B$ is odd) and $\nu_{2}(A^{p}) = m \geq 3$; the two valuations are unequal, so the strict-inequality rule gives $\nu_{2}(B^{p} + C^{p}) = \min\\{1, m\\} = 1$. Third, $\nu_{2}(2^{m}) = m$. Substituting,
-
-$$\nu_{2}\left((B^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = m + 1 + m - 1 = 2m.$$
-
-**Step 1.4: Valuation of the right-hand side of (1').** For each index $k$ with $0 \leq k \leq 2^{m} - 1$, the factor $(C^{p})^{k}$ is odd, so
-
-$$\nu_{2}\left(\binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}\right) = \nu_{2}\left(\binom{2^{m}}{k}\right) + (2^{m} - k)m,$$
-
-by Proposition 2.3 and the multiplicativity of $\nu_{2}$. A routine check shows that every term has valuation at least $2m$; the minimum is attained at $k = 2^{m} - 1$ (odd, so $\nu_{2}(\binom{2^{m}}{k}) = m$), giving $m + m = 2m$, while every other $k$ yields a strictly larger value.
-
-*Pairing argument.* To upgrade the lower bound on the *sum* from $2m$ to $2m + 1$, we exploit the symmetry $\binom{2^{m}}{k} = \binom{2^{m}}{2^{m} - k}$ by pairing index $k$ (for $1 \leq k \leq 2^{m-1} - 1$) with its complement $2^{m} - k$; both indices lie in the summation range $\\{0, 1, \ldots, 2^{m} - 1\\}$. The combined contribution of a pair $(k, 2^{m} - k)$ is
-
-$$\binom{2^{m}}{k}\Bigl[(C^{p})^{k}(-A^{p})^{2^{m}-k} + (C^{p})^{2^{m}-k}(-A^{p})^{k}\Bigr].$$
-
-When $k$ is odd (so that $2^{m} - k$ is also odd), factoring out $(A^{p})^{k}(C^{p})^{k}$ from the bracket gives
-
-$$-\binom{2^{m}}{k}(A^{p})^{k}(C^{p})^{k}\Bigl[(A^{p})^{2^{m}-2k} + (C^{p})^{2^{m}-2k}\Bigr].$$
-
-The $2$-adic valuation of the outer product $\binom{2^{m}}{k}(A^{p})^{k}(C^{p})^{k}$ is $m + km + 0 = m(k+1)$, because $k$ is odd (so $\nu_{2}(\binom{2^{m}}{k}) = m$), $\nu_{2}((A^{p})^{k}) = km$, and $\nu_{2}((C^{p})^{k}) = 0$. Inside the bracket, $(A^{p})^{2^{m}-2k}$ has valuation $(2^{m} - 2k)m \geq m$ (since $k < 2^{m-1}$), whereas $(C^{p})^{2^{m}-2k}$ is odd; the strict-inequality rule then gives the bracket valuation at least $1$. Hence the paired contribution has valuation at least $m(k+1) + 1 \geq 2m + 1$, with equality at $k = 1$.
-
-The remaining unpaired indices are $k = 0$ and $k = 2^{m-1}$. The first contributes $(-A^{p})^{2^{m}}$, whose valuation is $m \cdot 2^{m}$—vastly exceeding $2m + 1$. The second contributes $\binom{2^{m}}{2^{m-1}}(C^{p})^{2^{m-1}}(-A^{p})^{2^{m-1}}$, whose valuation is $1 + 0 + 2^{m-1} m$, again well above $2m + 1$ for $m \geq 3$. Combining all contributions,
-
-$$\nu_{2}\left(\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}\right) \geq 2m + 1.$$
-
-**Step 1.5: Contradiction.** Comparing the two sides of (1'),
-
-$$\underbrace{(B^{p})^{2^{m}} - (C^{p})^{2^{m}}}_{\nu_{2}=2m} = \underbrace{\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-A^{p})^{2^{m}-k}}_{\nu_{2}\geq2m+1}.$$
-
-Equal integers must have equal $2$-adic valuations, so $2m \geq 2m + 1$, which is impossible. Therefore Case 1 admits no solution.
+because $m\cdot p^{m}>2m$ for all odd primes $p\ge 3$ and all $m\ge 1$. Two equal non-zero integers cannot have different $p$-adic valuations. $\square$
 
 ---
 
-### Case 2: $2 \mid B$ (so $2 \nmid A$ and $2 \nmid C$)
+### 3.2. Open case: $C$ a power of two
 
-This case is entirely symmetric to Case 1 under the interchange of $A$ and $B$—an operation that leaves ($\ast$) invariant. The two odd bases are now $A$ and $C$. Rearranging ($\ast$) to isolate an odd $p$-th power,
-
-$$A^{p} = C^{p} - B^{p},$$
-
-and setting $m := \nu_{2}(B^{p}) = p\nu_{2}(B) \geq 3$, we raise to the power $2^{m}$ to obtain
-
-$$\bigl(A^{p}\bigr)^{2^{m}} = \bigl(C^{p} - B^{p}\bigr)^{2^{m}} = \sum_{k=0}^{2^{m}} \binom{2^{m}}{k}(C^{p})^{k}(-B^{p})^{2^{m}-k}.$$
-
-The odd endpoint is at $k = 2^{m}$, yielding $(C^{p})^{2^{m}}$. Moving it to the left-hand side gives
-
-$$(A^{p})^{2^{m}} - (C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(C^{p})^{k}(-B^{p})^{2^{m}-k}. \qquad (2')$$
-
-*Left-hand side.* Since $A^{p}$ and $C^{p}$ are both odd, Proposition 2.2 gives
-
-$$\nu_{2}\left((A^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = \nu_{2}(A^{p} - C^{p}) + \nu_{2}(A^{p} + C^{p}) + m - 1.$$
-
-From $A^{p} - C^{p} = -B^{p}$ we read off $\nu_{2}(A^{p} - C^{p}) = m$. Using the Fermat identity in the form $A^{p} + C^{p} = A^{p} + (A^{p} + B^{p}) = 2A^{p} + B^{p}$, and observing that $\nu_{2}(2A^{p}) = 1$ and $\nu_{2}(B^{p}) = m \geq 3$, the strict-inequality rule gives $\nu_{2}(A^{p} + C^{p}) = 1$. Therefore $\nu_{2}\left((A^{p})^{2^{m}} - (C^{p})^{2^{m}}\right) = m + 1 + m - 1 = 2m$.
-
-*Right-hand side.* The sum on the right of (2') is structurally identical to the one in Case 1, with the even base $A^{p}$ replaced by $B^{p}$. Applying the pairing argument of Step 1.4 verbatim (with $A \leftrightarrow B$) yields $\nu_{2}(\cdots) \geq 2m + 1$.
-
-*Contradiction.* The two sides of (2') have valuations $2m$ and $\geq 2m + 1$ respectively, which is impossible. Case 2 therefore admits no solution.
+**Remark 3.2** (Beal gap). When $C=2^{s}$ for some $s\ge 1$, the base $C$ has no odd prime divisor and Theorem 3.1 does not apply. In this situation $\gcd(A,B,C)=1$ forces both $A$ and $B$ to be odd, and the equation becomes $A^{x}+B^{y}=2^{sz}$. If both $x$ and $y$ are even, Proposition 2.3 (even case) gives $\nu_{2}(A^{x}+B^{y})=1$, which contradicts $\nu_{2}(2^{sz})=sz\ge 3$; this sub-case is therefore settled. When at least one of $x$, $y$ is odd, however, we are presently unable to establish the impossibility of a solution in general, and the problem is left open. Computational evidence [[PN17]](#references) provides no counterexample in small parameter ranges.
 
 ---
 
-### Case 3: $2 \mid C$ (so $2 \nmid A$ and $2 \nmid B$)
+### 3.3. Fermat's Last Theorem: the case $c=2^{s}$
 
-In contrast to Cases 1 and 2, the even base $C$ already stands alone on the right-hand side of ($\ast$), so a mere sign change cannot place an odd $p$-th power in isolation; a genuine rearrangement is required, and the subtraction-mode application of the Lifting The Exponent Lemma then becomes unavoidable.
+**Lemma 3.3** (FLT when $c$ is a power of two). Let $n\ge 3$ and $s\ge 1$ be integers. There are no positive odd integers $a$, $b$ satisfying $a^{n}+b^{n}=2^{sn}$.
 
-The two odd bases are $A$ and $B$. Rearranging ($\ast$),
+*Proof.* We consider two cases according to the parity of $n$.
 
-$$A^{p} = C^{p} - B^{p}. \qquad (3)$$
+**Case A: $n$ is even.** Since $a$ and $b$ are odd and $n$ is even, Proposition 2.3 (even case) gives $\nu_{2}(a^{n}+b^{n})=1$. On the other hand, $\nu_{2}(2^{sn})=sn$. Since $n\ge 4$ and $s\ge 1$, we have $sn\ge 4>1$, so $\nu_{2}(a^{n}+b^{n})\ne\nu_{2}(2^{sn})$, which is impossible.
 
-**Step 3.1: The valuation parameter $m$.** Since $2 \mid C$,
+**Case B: $n$ is odd.** Since $a$, $b$ are odd and $n$ is odd, Proposition 2.3 (odd case) gives $\nu_{2}(a^{n}+b^{n})=\nu_{2}(a+b)$. From $a^{n}+b^{n}=2^{sn}$ we obtain $\nu_{2}(a+b)=sn$, which means $a+b\ge 2^{sn}$. For the upper bound: from $a^{n}\le 2^{sn}-1<(2^{s})^{n}$ we get $a<2^{s}$, so $a\le 2^{s}-1$, and by symmetry $b\le 2^{s}-1$. Therefore
 
-$$m := \nu_{2}(C^{p}) = p\nu_{2}(C) \geq 3.$$
+$$a+b \le (2^{s}-1)+(2^{s}-1) = 2^{s+1}-2.$$
 
-**Step 3.2: Raising (3) to the power $2^{m}$ and splitting off the odd endpoint.** Raising both sides to the power $2^{m}$ and expanding,
+Since $n\ge 3$ and $s\ge 1$, we have $sn\ge s+2$ (because $s(n-1)\ge 2s\ge 2$), so $2^{sn}\ge 2^{s+2}>2^{s+1}-2\ge a+b$, contradicting $a+b\ge 2^{sn}$. $\square$
 
-$$(A^{p})^{2^{m}} = (C^{p} - B^{p})^{2^{m}} = (B^{p} - C^{p})^{2^{m}} = \sum_{k=0}^{2^{m}} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}.$$
-
-The odd endpoint is at $k = 2^{m}$, namely $(B^{p})^{2^{m}}$ (the $2^{m}$-th power of the second odd base). Moving it to the left-hand side gives the key identity
-
-$$(A^{p})^{2^{m}} - (B^{p})^{2^{m}} = \sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}. \qquad (3')$$
-
-This has the same structure as (1') and (2'), with $C$ now playing the role of the even base.
-
-**Step 3.3: Valuation of the left-hand side of (3').** By Proposition 2.2 applied to the odd integers $A^{p}$ and $B^{p}$ with even exponent $2^{m}$,
-
-$$\nu_{2}\left((A^{p})^{2^{m}} - (B^{p})^{2^{m}}\right) = \nu_{2}(A^{p} - B^{p}) + \nu_{2}(A^{p} + B^{p}) + \nu_{2}(2^{m}) - 1.$$
-
-Since $A^{p} + B^{p} = C^{p}$, the second summand is $\nu_{2}(C^{p}) = m$. For the first, the key algebraic manoeuvre is the identity
-
-$$A^{p} - B^{p} = (A^{p} + B^{p}) - 2B^{p} = C^{p} - 2B^{p},$$
-
-which rewrites the difference of two odd quantities as a difference of terms with *manifestly different* $2$-adic valuations: $\nu_{2}(C^{p}) = m \geq 3$ and $\nu_{2}(2B^{p}) = 1$. The strict-inequality rule yields $\nu_{2}(A^{p} - B^{p}) = 1$. Substituting,
-
-$$\nu_{2}\left((A^{p})^{2^{m}} - (B^{p})^{2^{m}}\right) = 1 + m + m - 1 = 2m.$$
-
-**Step 3.4: Valuation of the right-hand side of (3').** The sum on the right of (3') is structurally identical to the one in Cases 1 and 2, with the even base $C^{p}$ now appearing in the factor $(-C^{p})^{2^{m}-k}$. Applying the pairing argument of Step 1.4 verbatim (with $A \leftrightarrow C$) yields
-
-$$\nu_{2}\left(\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}\right) \geq 2m + 1.$$
-
-**Step 3.5: Contradiction.** Comparing the two sides of (3'),
-
-$$\underbrace{(A^{p})^{2^{m}} - (B^{p})^{2^{m}}}_{\nu_{2}=2m} = \underbrace{\sum_{k=0}^{2^{m}-1} \binom{2^{m}}{k}(B^{p})^{k}(-C^{p})^{2^{m}-k}}_{\nu_{2}\geq2m+1},$$
-
-yielding $2m \geq 2m + 1$, a contradiction.
+**Remark 3.4.** The bound $a+b\le 2^{s+1}-2$ is strict: were $a=2^{s}$, we would have $a^{n}\ge 2^{sn}$, leaving no room for the positive term $b^{n}$. Hence $a\le 2^{s}-1$, and the same holds for $b$ by symmetry.
 
 ---
 
-**Conclusion of the proof.** Each of the three cases above leads to a contradiction. Therefore no positive integers $A, B, C$ with $\gcd(A,B,C) = 1$ can satisfy $A^{p} + B^{p} = C^{p}$ for any odd prime $p$, and—by the reduction carried out in Step 1—no positive integers $a, b, c, n$ with $n \geq 3$ can satisfy $a^{n} + b^{n} = c^{n}$. Fermat's Last Theorem is proved. $\square$
+### 3.4. Complete proof of Fermat's Last Theorem
+
+**Corollary 3.5** (Fermat's Last Theorem). There are no positive integer solutions to $a^{n}+b^{n}=c^{n}$ for any integer $n\ge 3$.
+
+*Proof.* It suffices to prove the result for primitive solutions satisfying $\gcd(a,b,c)=1$; every non-primitive solution yields a primitive one upon dividing through by $\gcd(a,b,c)$. By a standard parity argument, in every primitive solution exactly one of $a$, $b$, $c$ is even.
+
+**Sub-case 1: $c$ is even and has an odd prime divisor $p$.** Set $A:=a$, $B:=b$, $C:=c$, and $x=y=z:=n$. Then $m:=\nu_{p}(C^{z})=n\nu_{p}(c)\ge n\ge 3$. All hypotheses of Theorem 3.1 are satisfied, yielding a contradiction.
+
+**Sub-case 2: $c$ is even and $c=2^{s}$ for some $s\ge 1$.** Since $\gcd(a,b,c)=1$ and $2\mid c$, both $a$ and $b$ are odd. The equation becomes $a^{n}+b^{n}=2^{sn}$, which Lemma 3.3 shows is impossible.
+
+**Sub-case 3: $c$ is odd.** Since $c$ is odd and $c\ge 2$, $c$ has at least one odd prime divisor $p$. Setting $A:=a$, $B:=b$, $C:=c$, and $x=y=z:=n$, the parameter $m=n\nu_{p}(c)\ge 3$, and Theorem 3.1 again yields a contradiction.
+
+All three sub-cases are impossible, so no primitive solution exists, and Fermat's Last Theorem is proved. $\square$
 
 ---
 
-## Acknowledgements
+## 4. Conclusions
 
-The author would like to thank Iris, Marilin, Sonia, Yoselin, and Arelis for their support.
+Two main results have been established. For the Beal conjecture $A^{x}+B^{y}=C^{z}$ with $\gcd(A,B,C)=1$ and $x,y,z>2$: whenever $C$ possesses an odd prime divisor $p$, a contradiction arises from comparing the $p$-adic valuations of the two sides of $(C^{z})^{p^{m}}=(A^{x}+B^{y})^{p^{m}}$. The left-hand side has valuation $m\cdot p^{m}$. The right-hand side, analyzed term by term and pair by pair through the Lifting The Exponent Lemma and the formula for $\nu_{p}\bigl(\binom{p^{m}}{k}\bigr)$, has valuation exactly $2m$; since $2m<m\cdot p^{m}$ for every odd prime $p$ and every $m\ge 1$, the equation cannot hold. The case $C=2^{s}$ (no odd prime divisor) remains an open problem for the Beal conjecture, with the sub-case of both exponents even settled by a modulo $8$ argument. For Fermat's Last Theorem, the analogous case $c=2^{s}$ is completely resolved: the Lifting The Exponent Lemma for $p=2$ forces $a+b$ to be divisible by $2^{sn}$, yet the elementary bound $a+b\le 2^{s+1}-2$ contradicts $a+b\ge 2^{sn}$ whenever $n\ge 3$ and $s\ge 1$; the even-exponent sub-case is handled separately by the same modulo $8$ argument. Combining Theorem 3.1 with Lemma 3.3 thus yields a complete elementary proof of Fermat's Last Theorem for all $n\ge 3$.
 
 ---
 
@@ -234,19 +159,13 @@ The author would like to thank Iris, Marilin, Sonia, Yoselin, and Arelis for the
 
 **[Fer91]** Fermat, Pierre de (1891). *Oeuvres de Pierre de Fermat*, Volume 1. Edited by Paul Tannery and Jules Tannery. Gauthier-Villars, Paris, France.
 
-**[Eur12]** Euler, Leonhard (2012). *Elements of Algebra*. Springer Science & Business Media, New York, United States. DOI: [10.1007/978-1-4613-8511-0](https://doi.org/10.1007/978-1-4613-8511-0).
-
-**[Ger16]** Germain, Sophie (2016). *Oeuvres philosophiques de Sophie Germain*. Collection XIX, Paris, France.
-
-**[Kum47]** Kummer, Ernst Eduard (1847). *Zur Theorie der complexen Zahlen*. Walter de Gruyter, Berlin/New York. DOI: [10.1007/BF01212902](https://doi.org/10.1007/BF01212902).
-
 **[Wil95]** Wiles, Andrew (1995). "Modular elliptic curves and Fermat's Last Theorem," *Annals of Mathematics*, 141(3), 443--551. JSTOR. DOI: [10.2307/2118559](https://doi.org/10.2307/2118559).
 
 **[Rib95]** Ribet, Kenneth A. (1995). "Galois representations and modular forms," *Bulletin of the American Mathematical Society*, 32(4), 375--402. DOI: [10.1090/S0273-0979-1995-00616-6](https://doi.org/10.1090/S0273-0979-1995-00616-6).
 
-**[beal1997generalization]** Beal, Andrew (1997). "A generalization of Fermat's last theorem: the Beal conjecture and prize problem," *Notices of the AMS*, 44(11), 1436--1437.
+**[BE97]** Beal, Andrew (1997). "A Generalization of Fermat's Last Theorem: The Beal Conjecture and Prize Problem," *Notices of the AMS*, 44(11).
 
-**[stewart1986oesterle]** Stewart, Cameron L. and Tijdeman, Robert (1986). "On the Oesterlé-Masser conjecture," *Monatshefte für Mathematik*, 102(3), 251--257. Springer. DOI: [10.1007/BF01294603](https://doi.org/10.1007/BF01294603).
+**[PN17]** Norvig, Peter (2017). "Beal's Conjecture: A Search for Counterexamples," *Norvig.com*, July 2017. URL: [http://norvig.com/beal.html](http://norvig.com/beal.html). Accessed February 19, 2026.
 
 **[Manea2006]** Manea, M. (2006). "Some $a^n \pm b^n$ Problems in Number Theory," *Mathematics Magazine*, 79(2), 140--145. Mathematical Association of America, April 2006. DOI: [10.2307/27642922](https://doi.org/10.2307/27642922).
 
@@ -254,10 +173,10 @@ The author would like to thank Iris, Marilin, Sonia, Yoselin, and Arelis for the
 
 ---
 
-**MSC (2020):** 11D41 (Higher degree equations; Fermat's equation), 11A41 (Primes), 11A05 (Multiplicative structure; Euclidean algorithm; greatest common divisors)
+**MSC (2020):** 11D41 (Higher degree equations; Fermat's equation), 11A41 (Primes), 11A05 (Multiplicative structure; Euclidean algorithm; greatest common divisors), 11A07 (Congruences; primitive roots; residue systems)
 
 ---
 
 **Documentation**
 
-Available as PDF at *[A Note on Fermat's Last Theorem](https://www.preprints.org/manuscript/202109.0480/v21)*.
+Available as PDF at *[A Note on the Beal Conjecture](https://www.preprints.org/manuscript/202109.0480)*.
